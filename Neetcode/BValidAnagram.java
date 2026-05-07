@@ -32,3 +32,10 @@ public class BValidAnagram {
         return true;
     }
 }
+
+// Approach: Count the frequency of each character in both strings and compare
+// the counts. If they match, the strings are anagrams.
+// Time Complexity: O(n), where n is the length of the strings (since we
+// traverse both strings once).
+// Space Complexity: O(1), since the count array has a fixed size of 26 (for
+// lowercase English letters).

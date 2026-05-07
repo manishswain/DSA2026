@@ -21,9 +21,17 @@ public class CTwoSum {
                 return new int[] { map.get(complement), i };
             }
             map.put(nums[i], i);
-            map.
         }
         return new int[] {};
 
     }
 }
+
+// Approach: Use a hash map to store the indices of the numbers as we iterate
+// through the array. For each number, calculate its complement (target -
+// current number) and check if it exists in the map. If it does, we have found
+// the two numbers that add up to the target, and we return their indices.
+// Time Complexity: O(n), where n is the length of the input array (since we
+// traverse the array once).
+// Space Complexity: O(n), since in the worst case, we may store all the numbers
+// in the hash map.
