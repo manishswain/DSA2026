@@ -20,3 +20,12 @@ public class AContainsDuplicate {
         return false;
     }
 }
+
+// Approach: HashSet
+// Time Complexity: O(n) where n is the length of the input array. We iterate
+// through the array once, and each insertion into the HashSet takes O(1) time
+// on average.
+// Space Complexity: O(n) in the worst case, if all elements in the array are
+// unique, we will store all n elements in the HashSet. In the best case, if
+// there is a duplicate early on, the space complexity would be O(1) since we
+// would only store a few elements before finding the duplicate.
