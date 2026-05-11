@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//HashMap Question
 public class DGroupAnagrams {
     public static void main(String[] args) {
         String[] strs = { "bdddddddddd", "bbbbbbbbbbc" };

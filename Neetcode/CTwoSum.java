@@ -3,6 +3,7 @@ package Neetcode;
 import java.util.HashMap;
 import java.util.Map;
 
+//HashMap Question
 public class CTwoSum {
     public static void main(String[] args) {
         int[] nums = { 2, 7, 11, 15 };

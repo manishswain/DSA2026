@@ -3,6 +3,7 @@ package Neetcode;
 import java.util.HashSet;
 import java.util.Set;
 
+//2D Array and HashSet Question
 public class GValidSoduko {
     public static void main(String[] args) {
         char[][] board = {

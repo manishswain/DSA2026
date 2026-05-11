@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+//HashMap and Priority Queue Question
 public class EKFrequentElements {
     public static void main(String[] args) {
         int[] nums = { 1, 1, 1, 2, 2, 3 };

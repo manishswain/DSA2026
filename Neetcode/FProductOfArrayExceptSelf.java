@@ -2,10 +2,11 @@ package Neetcode;
 
 import java.util.Arrays;
 
+//Array Auxiliary Space Question
 public class FProductOfArrayExceptSelf {
     public static void main(String[] args) {
         int[] nums = { -1, 1, 0, -3, 3 };
-        int[] result = productExceptSelfCheat(nums);
+        int[] result = productExceptSelfOptimal(nums);
         System.out.print("Product of Array Except Self:" + Arrays.toString(result));
     }
 
