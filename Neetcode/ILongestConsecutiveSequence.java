@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 //HashSet Question
+//Leetcode 128 - Longest Consecutive Sequence
 public class ILongestConsecutiveSequence {
     public static void main(String[] args) {
         int[] nums = { 1, 2, 6, 7, 8 };

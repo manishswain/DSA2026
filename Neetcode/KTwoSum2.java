@@ -1,6 +1,7 @@
 package Neetcode;
 
 //Two Pointers Approach
+//Leetcode 167 - Two Sum II - Input Array Is Sorted
 public class KTwoSum2 {
     public static void main(String[] args) {
         int[] numbers = { 1, 2, 3, 4, 5 };
