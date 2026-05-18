@@ -1,4 +1,4 @@
-package DesignPattern;
+package DesignPrinciples;
 
 //Defination - The Single Responsibility Principle states that a class should have only one reason to change, meaning it should have only one job or responsibility.
 //  This principle helps to create more maintainable and understandable code by ensuring that each class has a clear

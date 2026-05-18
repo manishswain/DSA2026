@@ -1,4 +1,4 @@
-package DesignPattern;
+package DesignPrinciples;
 
 //Defination - The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
 //  This principle ensures that a subclass can stand in for its superclass without causing errors or unexpected behavior, which promotes code reusability and maintainability.

@@ -1,4 +1,4 @@
-package DesignPattern;
+package DesignPrinciples;
 
 //Defination - The Dependency Inversion Principle states that high-level modules should not depend on low-level modules. Both should depend on abstractions (e.g., interfaces).
 //  Additionally, abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
