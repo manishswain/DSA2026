@@ -1,4 +1,4 @@
-package DesignPatterns;
+package DesignPatterns.CreationalPatterns;
 
 public class Singleton {
 
@@ -9,7 +9,11 @@ public class Singleton {
 
     public static Singleton getInstance() {
         if (instance == null) {
-            instance = new Singleton();
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
         }
         return instance;
     }
