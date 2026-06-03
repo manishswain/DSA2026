@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 // Prototype Interface
+// This example demonstrates the Prototype Design Pattern, which allows for cloning of objects to create new instances 
+// without the need for direct instantiation. The Prototype interface defines a clone method that must be implemented by 
+// concrete prototypes. The PrototypeRegistry class serves as a registry for storing and cloning prototypes. 
+// The main method demonstrates three examples of using the Prototype pattern: direct cloning, configuration cloning,
+//  and using a prototype registry.   
 interface Prototype extends Cloneable {
     Prototype clone();
 }
@@ -89,11 +94,11 @@ class PrototypeRegistry {
     private Map<String, Prototype> registry = new HashMap<>();
 
     public void register(String name, Prototype prototype) {
-        registry.put(name, prototype);
+        this.registry.put(name, prototype);
     }
 
     public Prototype clone(String name) {
-        Prototype prototype = registry.get(name);
+        Prototype prototype = this.registry.get(name);
         if (prototype != null) {
             return prototype.clone();
         }

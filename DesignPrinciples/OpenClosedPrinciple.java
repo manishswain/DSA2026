@@ -1,7 +1,9 @@
 package DesignPrinciples;
 
-//Defination - The Open/Closed Principle states that software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.
-//  This means that you should be able to add new functionality to a system without changing existing code, which helps to prevent bugs and maintain stability in the software.    
+//Defination - The Open/Closed Principle states that software entities (classes, modules, functions, etc.)
+// should be open for extension but closed for modification.
+//  This means that you should be able to add new functionality to a system without changing existing code, 
+// which helps to prevent bugs and maintain stability in the software.    
 public class OpenClosedPrinciple {
     public static void main(String[] args) {
         // Economy ride
