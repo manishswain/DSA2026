@@ -10,7 +10,7 @@ import java.util.Map;
 //Leetcode 49 - Group Anagrams
 public class DGroupAnagrams {
     public static void main(String[] args) {
-        String[] strs = { "bdddddddddd", "bbbbbbbbbbc" };
+        String[] strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
 
         System.out.println("Grouped Anagrams: " + groupAnagramsOptimal(strs));
     }
@@ -58,13 +58,14 @@ public class DGroupAnagrams {
                 sb.append(i).append(".");
             }
             String key = sb.toString();
-            System.out.println(key);
+            // System.out.println(key);
             if (!map.containsKey(key)) {
                 map.put(key, new ArrayList<>());
             }
             map.get(key).add(s);
         }
         res.addAll(map.values());
+        System.out.println(map);
         return res;
     }
 }

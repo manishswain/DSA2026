@@ -14,6 +14,14 @@ public class CTwoSum {
         System.out.println("Indices: [" + result[0] + ", " + result[1] + "]");
     }
 
+    // Approach - Use a hash map to store the indices of the numbers as we iterate
+    // through the array. For each number, calculate its complement (target -
+    // current number) and check if it exists in the map. If it does, we have found
+    // the two numbers that add up to the target, and we return their indices.
+    // Time Complexity: O(n), where n is the length of the input array (since we
+    // traverse the array once).
+    // Space Complexity: O(n), since in the worst case, we may store all the numbers
+    // in the hash map.
     private static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
 

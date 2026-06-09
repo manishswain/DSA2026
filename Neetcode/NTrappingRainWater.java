@@ -2,6 +2,8 @@ package Neetcode;
 
 import java.util.Arrays;
 
+//Array - Medium - Two Pointers
+//LeetCode 42 - Trapping Rain Water
 public class NTrappingRainWater {
     public static void main(String[] args) {
         int[] height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
@@ -55,7 +57,7 @@ public class NTrappingRainWater {
                 }
                 left++;
             } else {
-                if (height[right] >= rightMax) {
+                if (height[right] > = rightMax) {
                     rightMax = height[right];
                 } else {
                     total += rightMax - height[right];

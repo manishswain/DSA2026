@@ -3,7 +3,7 @@ package Neetcode;
 //Leetcode 242 - Valid Anagram
 public class BValidAnagram {
     public static void main(String[] args) {
-        String s = "anagrams";
+        String s = "anagram";
         String t = "nagaram";
 
         boolean isAnagram = isAnagram(s, t);

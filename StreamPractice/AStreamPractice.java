@@ -3,6 +3,7 @@ package StreamPractice;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class AStreamPractice {
@@ -20,18 +21,19 @@ public class AStreamPractice {
         AStreamPractice practice = new AStreamPractice();
 
         // Q1 - All Employee whose name start with A
-        var res = practice.employees.stream().filter(x -> x.getName().startsWith("A")).map(Employee::getName).toList();
+        var res = practice.employees.stream().filter(x -> x.getName().startsWith("A")).peek(System.out::print)
+                .map(Employee::getName).toList();
         System.out.println(res);
 
-        // Q2 - All Employees sorted alphabetically
-        var res1 = practice.employees.stream().sorted(Comparator.comparing(Employee::getName)).map(Employee::getName)
-                .toList();
+        // Q2 - All Employees sorted alphabetically in reverseOrder
+        var res1 = practice.employees.stream().sorted(Comparator.comparing(Employee::getName).reversed())
+                .map(Employee::getName).toList();
         System.out.println(res1);
 
         // Q3 - Highest Paid Employee in each department
-        var res2 = practice.employees.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment,
-                        Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))));
+        var res2 = practice.employees.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))));
+
         System.out.println(res2);
         res2.forEach((dept, emp) -> IO.println(dept + "->" + emp.get().getName()));
 
@@ -52,8 +54,8 @@ public class AStreamPractice {
         System.out.println(res5);
 
         // 2nd Highest Salary of the Employee
-        var res6 = practice.employees.stream().map(Employee::getSalary).distinct().sorted(Comparator.reverseOrder())
-                .skip(1).findFirst();
+        var res6 = practice.employees.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
+                .mapToDouble(Employee::getSalary).skip(1).findFirst().getAsDouble();
         System.out.println(res6);
 
         // Partition employees into male and female
@@ -64,6 +66,16 @@ public class AStreamPractice {
         var res8 = practice.employees.stream()
                 .collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingInt(Employee::getAge)));
         System.out.println(res8);
+
+        // Sum of even numbers
+        int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int sum = Arrays.stream(numbers).filter(x -> x % 2 == 0).boxed().reduce(0, Integer::sum);
+        System.out.println(sum);
+
+        // List of String
+        List<String> strings = Arrays.asList("Hello", "World", "Java", "Streams", "Java");
+        var res9 = strings.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(res9);
 
     }
 }

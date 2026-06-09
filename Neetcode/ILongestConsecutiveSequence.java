@@ -67,5 +67,4 @@ public class ILongestConsecutiveSequence {
         }
         return largestSeq;
     }
-
 }

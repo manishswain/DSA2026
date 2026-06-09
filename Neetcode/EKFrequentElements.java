@@ -23,6 +23,19 @@ public class EKFrequentElements {
         System.out.println("]");
     }
 
+    // Approach: HashMap + Min Heap (Priority Queue)
+    // Time Complexity: O(n log k) where n is the number of elements in the input
+    // array and k is the number of top frequent elements we want to return. We
+    // iterate through the input array to build the frequency map, which takes O(n)
+    // time. Then we iterate through the keys
+    // of the frequency map and add them to the priority queue, which takes O(m log
+    // k) time, where m is the number of unique elements in the input array. Since m
+    // can be at most n, this step can be considered O(n log k) in the worst case.
+    // Space Complexity: O(n) in the worst case, if all elements in the input array
+    // are unique, we will store all n elements in the frequency map and the
+    // priority queue. In the best case, if there are only a few unique elements,
+    // the space complexity would be O(k) since we only store the top k elements in
+    // the priority queue.
     private static int[] topKFrequent(int[] nums, int k) {
 
         if (k == nums.length) {
@@ -44,17 +57,3 @@ public class EKFrequentElements {
         return pq.stream().mapToInt(a -> a).toArray();
     }
 }
-
-// Approach: HashMap + Min Heap (Priority Queue)
-// Time Complexity: O(n log k) where n is the number of elements in the input
-// array and k is the number of top frequent elements we want to return. We
-// iterate through the input array to build the frequency map, which takes O(n)
-// time. Then we iterate through the keys
-// of the frequency map and add them to the priority queue, which takes O(m log
-// k) time, where m is the number of unique elements in the input array. Since m
-// can be at most n, this step can be considered O(n log k) in the worst case.
-// Space Complexity: O(n) in the worst case, if all elements in the input array
-// are unique, we will store all n elements in the frequency map and the
-// priority queue. In the best case, if there are only a few unique elements,
-// the space complexity would be O(k) since we only store the top k elements in
-// the priority queue.
