@@ -57,7 +57,7 @@ public class NTrappingRainWater {
                 }
                 left++;
             } else {
-                if (height[right] > = rightMax) {
+                if (height[right] >= rightMax) {
                     rightMax = height[right];
                 } else {
                     total += rightMax - height[right];

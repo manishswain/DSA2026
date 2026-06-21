@@ -9,7 +9,7 @@ public class ThreadPoolExecutorExample {
     public static void main(String[] args) throws InterruptedException {
 
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(4,
-                6, 2, TimeUnit.SECONDS,
+                20, 2, TimeUnit.SECONDS,
                 new ArrayBlockingQueue<>(10),
                 new RejectedExecutionHandler() {
                     @Override
@@ -27,5 +27,8 @@ public class ThreadPoolExecutorExample {
         for (int i = 0; i < 50; i++) {
             threadPoolExecutor.submit(new LongRunningTask(i + ""));
         }
+
+        threadPoolExecutor.shutdown();
+        threadPoolExecutor.awaitTermination(1, TimeUnit.SECONDS);
     }
 }
