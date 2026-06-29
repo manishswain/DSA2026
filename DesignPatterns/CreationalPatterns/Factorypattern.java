@@ -1,5 +1,6 @@
 package DesignPatterns.CreationalPatterns;
 
+//Factory Pattern Benefits - It provides an interface for creating objects without specifying their exact classes.
 public class Factorypattern {
     public static void main(String[] args) {
         ShapeFactory shapeFactory = new ShapeFactory();
