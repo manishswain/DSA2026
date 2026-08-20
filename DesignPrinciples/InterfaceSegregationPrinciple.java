@@ -1,8 +1,8 @@
 package DesignPrinciples;
 
-//Defination - The Interface Segregation Principle states that clients should not be forced to depend on interfaces they do not use.
-//  This principle encourages the creation of smaller, more specific interfaces rather than large
-// , general-purpose ones, which helps to reduce coupling and increase flexibility in the codebase.
+// Defination - The Interface Segregation Principle states that clients should not be forced to depend on interfaces they do not use.
+// This principle encourages the creation of smaller, more specific interfaces rather than large
+// ,general-purpose ones, which helps to reduce coupling and increase flexibility in the codebase.
 public class InterfaceSegregationPrinciple {
     public static void main(String[] args) {
         // Customer actions

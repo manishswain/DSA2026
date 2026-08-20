@@ -2,7 +2,7 @@ package DesignPrinciples;
 
 //Defination - The Single Responsibility Principle states that a class should have only one reason to change,
 //  meaning it should have only one job or responsibility.
-//This principle helps to create more maintainable and understandable code by ensuring that each class
+//  This principle helps to create more maintainable and understandable code by ensuring that each class
 //  has a clear and focused purpose. When a class has multiple responsibilities, it becomes more complex and harder to maintain,
 //  as changes to one responsibility may affect the others. By adhering to the Single Responsibility Principle,
 //  developers can create code that is easier to test, debug, and extend in the future.
@@ -34,7 +34,7 @@ class FoodOrder {
 
     public double calculateTotal() {
         // Logic to calculate total
-        return amount;
+        return amount * 5;
     }
 
     // Getters and setters
