@@ -1,6 +1,6 @@
 package Namaste.Arrays;
 
-public class SingleNumber {
+public class SingleNumber136 {
     public static void main(String[] args) {
         int[] nums = { 2, 2, 1 };
         int singleNumber = findSingleNumber(nums);

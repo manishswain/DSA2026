@@ -1,6 +1,6 @@
 package Namaste.Arrays;
 
-public class MaxConsecutiveOnes {
+public class MaxConsecutiveOnes485 {
     public static void main(String[] args) {
         int[] nums = { 1, 0, 1, 1, 0, 1 };
         int maxConsecutiveOnes = findMaxConsecutiveOnes(nums);

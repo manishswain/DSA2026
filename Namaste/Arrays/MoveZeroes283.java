@@ -1,6 +1,6 @@
 package Namaste.Arrays;
 
-public class MoveZeroes {
+public class MoveZeroes283 {
     public static void main(String[] args) {
         int[] nums = { 4, 2, 4, 0, 0, 3, 0, 5, 1, 0 };
         moveZeroes(nums);

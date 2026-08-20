@@ -1,6 +1,6 @@
 package Namaste.Arrays;
 
-public class MissingNumber {
+public class MissingNumber268 {
     public static void main(String[] args) {
         int[] nums = { 3, 0, 1 };
         int missingNumber = findMissingNumber(nums);

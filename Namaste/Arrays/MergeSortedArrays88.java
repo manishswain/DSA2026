@@ -1,6 +1,6 @@
 package Namaste.Arrays;
 
-public class MergeSortedArrays {
+public class MergeSortedArrays88 {
     public static void main(String[] args) {
         int[] nums1 = { 0 };
         int m = 0;

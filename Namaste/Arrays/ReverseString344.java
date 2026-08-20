@@ -1,6 +1,6 @@
 package Namaste.Arrays;
 
-public class ReverseString {
+public class ReverseString344 {
     public static void main(String[] args) {
         char[] s = { 'h', 'e', 'l', 'l', 'o' };
         reverseString(s);
