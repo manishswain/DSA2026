@@ -3,7 +3,7 @@ package Namaste.String;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ValidAnagram {
+public class ValidAnagram242 {
     public static void main(String[] args) {
         String s = "aacc";
         String t = "ccac";

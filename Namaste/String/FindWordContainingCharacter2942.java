@@ -3,7 +3,7 @@ package Namaste.String;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindWordContainingCharacter {
+public class FindWordContainingCharacter2942 {
     public static void main(String[] args) {
         String[] s = { "leet", "code" };
         char c = 'o';

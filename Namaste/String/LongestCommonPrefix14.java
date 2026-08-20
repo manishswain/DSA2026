@@ -1,6 +1,6 @@
 package Namaste.String;
 
-public class LongestCommonPrefix {
+public class LongestCommonPrefix14 {
     public static void main(String[] args) {
         String[] strs = { "ab", "a" };
         String prefix = longestCommonPrefix(strs);

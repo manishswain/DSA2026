@@ -1,6 +1,6 @@
 package Namaste.String;
 
-public class LargestOddNumberInString {
+public class LargestOddNumberInString1903 {
     public static void main(String[] args) {
         String num = "35427";
         String largestOdd = largestOddNumber(num);

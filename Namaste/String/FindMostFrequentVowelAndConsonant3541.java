@@ -2,7 +2,7 @@ package Namaste.String;
 
 import java.util.List;
 
-public class FindMostFrequentVowelAndConsonant {
+public class FindMostFrequentVowelAndConsonant3541 {
     public static void main(String[] args) {
         String s = "successes";
         // Implementation for finding most frequent vowel and consonant

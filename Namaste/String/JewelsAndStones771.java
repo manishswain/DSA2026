@@ -1,6 +1,6 @@
 package Namaste.String;
 
-public class JewelsAndStones {
+public class JewelsAndStones771 {
     public static void main(String[] args) {
         String jewels = "aA";
         String stones = "aAAbbbb";

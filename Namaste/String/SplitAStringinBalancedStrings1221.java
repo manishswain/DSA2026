@@ -1,6 +1,6 @@
 package Namaste.String;
 
-public class SplitAStringinBalancedStrings {
+public class SplitAStringinBalancedStrings1221 {
     public static void main(String[] args) {
         String s = "RLRRLLRLRL";
         int count = balancedStringSplit(s);
