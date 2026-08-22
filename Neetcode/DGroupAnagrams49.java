@@ -8,7 +8,7 @@ import java.util.Map;
 
 //HashMap Question
 //Leetcode 49 - Group Anagrams
-public class DGroupAnagrams {
+public class DGroupAnagrams49 {
     public static void main(String[] args) {
         String[] strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
 

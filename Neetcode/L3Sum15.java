@@ -6,7 +6,7 @@ import java.util.List;
 
 //Two pointer approach
 //Leetcode 15 - 3Sum
-public class L3Sum {
+public class L3Sum15 {
     public static void main(String[] args) {
         int[] nums = { -1, 0, 1, 2, -1, -4 };
         System.out.println(threeSumOptimal(nums));

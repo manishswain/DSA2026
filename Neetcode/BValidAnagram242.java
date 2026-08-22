@@ -1,7 +1,7 @@
 package Neetcode;
 
 //Leetcode 242 - Valid Anagram
-public class BValidAnagram {
+public class BValidAnagram242 {
     public static void main(String[] args) {
         String s = "anagram";
         String t = "nagaram";

@@ -7,7 +7,7 @@ import java.util.Queue;
 
 //HashMap and Priority Queue Question
 //Leetcode 347 - Top K Frequent Elements
-public class EKFrequentElements {
+public class EKFrequentElements347 {
     public static void main(String[] args) {
         int[] nums = { 1, 1, 1, 2, 2, 3 };
         int k = 2;

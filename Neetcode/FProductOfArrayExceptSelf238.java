@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 //Array Auxiliary Space Question
 //Leetcode 238 - Product of Array Except Self
-public class FProductOfArrayExceptSelf {
+public class FProductOfArrayExceptSelf238 {
     public static void main(String[] args) {
         int[] nums = { -1, 1, 0, -3, 3 };
         int[] result = productExceptSelfOptimal(nums);

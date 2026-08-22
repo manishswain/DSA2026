@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 // Array - Medium - Sliding Window + 2 Pointers
-public class PLongestSubstringWithoutReapeatingCharacters {
+public class PLongestSubstringWithoutReapeatingCharacters3 {
     public static void main(String[] args) {
         String s = "abatman";
         System.out.println(lengthOfLongestSubstring(s));

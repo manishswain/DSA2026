@@ -5,7 +5,7 @@ import java.util.Set;
 
 //2D Array and HashSet Question
 //Leetcode 36 - Valid Sudoku
-public class GValidSoduko {
+public class GValidSoduko36 {
     public static void main(String[] args) {
         char[][] board = {
                 { '5', '3', '.', '1', '7', '.', '.', '.', '.' },

@@ -2,7 +2,7 @@ package Neetcode;
 
 //Two Pointer Pattern Question
 //Leetcode 125 - Valid Palindrome
-public class JValidPalindrome {
+public class JValidPalindrome125 {
     public static void main(String[] args) {
         String s = "A man, a plan, a canal: Panama";
         boolean result = isPalindromeOptimal(s);

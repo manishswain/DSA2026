@@ -2,7 +2,7 @@ package Neetcode;
 
 //LeetCode 76 - Minimum Window Substring
 //Sliding Window - Hard
-public class SMinimumWindowSubstring {
+public class SMinimumWindowSubstring76 {
     public static void main(String[] args) {
         String s = "ADOBECODEBANC";
         String t = "ABC";

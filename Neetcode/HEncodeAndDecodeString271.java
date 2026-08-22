@@ -2,7 +2,7 @@ package Neetcode;
 
 //String Question
 //Leetcode 271 - Encode and Decode Strings
-public class HEncodeAndDecodeString {
+public class HEncodeAndDecodeString271 {
     public static void main(String[] args) {
         String[] s = { "Hello, World!", "Neetcode is great!", "Encode and Decode String" };
         String encoded = encode(s);

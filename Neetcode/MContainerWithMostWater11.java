@@ -2,7 +2,7 @@ package Neetcode;
 
 //Two pointer approach
 //Leetcode 11 - Container With Most Water
-public class MContainerWithMostWater {
+public class MContainerWithMostWater11 {
     public static void main(String[] args) {
         int[] height = { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
         System.out.println(maxArea(height));
