@@ -1,0 +1,1 @@
+I am going to give a System Design Interview . Explain and draw the design diagram of a very complex ecommerce application . The format should be similar to a Senior Java Developer Interview . Explain the deep dives ,components used and traid offs done in the design . Explain the full flow from login ,adding to cart to delivery.
