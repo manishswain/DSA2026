@@ -24,6 +24,18 @@ private static boolean checkInclusionBruteForce(String s1, String s2) {
 }
 ```
 
+**Example:** `s1 = "ab", s2 = "eidbaooo"`
+
+**Dry Run:**
+```
+target = sorted("ab") = "ab"
+i=0: window="ei" -> sorted "ei" != "ab"
+i=1: window="id" -> sorted "di" != "ab"
+i=2: window="db" -> sorted "bd" != "ab"
+i=3: window="ba" -> sorted "ab" == "ab" -> return true
+```
+Output: `true`
+
 ## Optimal Solution
 
 **Intuition:** Instead of sorting, represent character composition with fixed-size (26-length) frequency arrays, since only lowercase letters are involved. Build a frequency map for `s1` and for the first window of `s2` of the same length. Then slide the window one character at a time: incrementing the count for the character entering the window and decrementing the count for the character leaving it. At each step, compare the two frequency arrays — equal arrays mean the current window is a permutation of `s1`. This avoids re-sorting or rebuilding counts from scratch for each window.
@@ -48,3 +60,19 @@ private static boolean checkInclusion(String s1, String s2) {
     return matches(s1Map, s2Map);
 }
 ```
+
+**Example:** `s1 = "ab", s2 = "eidbaooo"`
+
+**Dry Run:**
+```
+s1Map: a=1, b=1
+initial window s2[0..1]="ei" -> s2Map: e=1, i=1
+i=0: matches(s1Map, s2Map)? {a1,b1} vs {e1,i1} -> no
+     add s2.charAt(2)='d' -> s2Map{i1,d1}; remove s2.charAt(0)='e' -> s2Map{i1,d1}
+i=1: matches? {a1,b1} vs {i1,d1} -> no
+     add s2.charAt(3)='b' -> s2Map{d1,b1}; remove s2.charAt(1)='i' -> s2Map{d1,b1}
+i=2: matches? {a1,b1} vs {d1,b1} -> no
+     add s2.charAt(4)='a' -> s2Map{b1,a1}; remove s2.charAt(2)='d' -> s2Map{b1,a1}
+i=3: matches? {a1,b1} vs {b1,a1} -> yes -> return true
+```
+Output: `true`

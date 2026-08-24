@@ -28,6 +28,14 @@ private static int[] twoSumBruteForce(int[] numbers, int target) {
 }
 ```
 
+**Example:** `numbers = [2, 7, 11, 15]`, `target = 9`
+
+**Dry Run:**
+```
+i=0 (2): j=1 (7) -> 2+7=9 == target -> return [1, 2]
+```
+Output: `[1, 2]`
+
 ## Optimal Solution
 
 Since the array is sorted, use two pointers: `left` starting at index 0 and
@@ -59,3 +67,13 @@ private static int[] twoSum(int[] numbers, int target) {
     return new int[] {};
 }
 ```
+
+**Example:** `numbers = [2, 7, 11, 15]`, `target = 9`
+
+**Dry Run:**
+```
+left=0 (2), right=3 (15): sum=17 > 9 -> right-- (right=2)
+left=0 (2), right=2 (11): sum=13 > 9 -> right-- (right=1)
+left=0 (2), right=1 (7):  sum=9 == 9 -> return [left+1, right+1] = [1, 2]
+```
+Output: `[1, 2]`

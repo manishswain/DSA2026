@@ -24,6 +24,14 @@ private static int[] twoSumBrute(int[] nums, int target) {
 }
 ```
 
+**Example:** `nums = [2, 7, 11, 15]`, `target = 9`
+
+**Dry Run:**
+```
+i=0 (2): j=1 (7) -> 2+7=9 == target -> return [0, 1]
+```
+Output: `[0, 1]`
+
 ## Optimal Solution
 
 Use a `HashMap` to store each number's index as we iterate. For each number, compute its complement (`target - nums[i]`) and check if that complement is already in the map — if so, we've found our pair.
@@ -46,3 +54,13 @@ private static int[] twoSum(int[] nums, int target) {
     return new int[] {};
 }
 ```
+
+**Example:** `nums = [2, 7, 11, 15]`, `target = 9`
+
+**Dry Run:**
+```
+map = {}
+i=0, nums[0]=2: complement = 9-2 = 7 -> map.containsKey(7)? no -> map.put(2, 0)   map = {2:0}
+i=1, nums[1]=7: complement = 9-7 = 2 -> map.containsKey(2)? yes -> return [map.get(2), 1] = [0, 1]
+```
+Output: `[0, 1]`

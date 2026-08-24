@@ -27,6 +27,16 @@ private static String[] decodeNaive(String s) {
 }
 ```
 
+**Example:** `strs = ["a,b", "c"]`
+
+**Dry Run:**
+```
+encodeNaive(["a,b", "c"]) -> String.join(",", "a,b", "c") = "a,b,c"
+
+decodeNaive("a,b,c") -> "a,b,c".split(",") = ["a", "b", "c"]
+```
+Output: `["a", "b", "c"]` — WRONG, original was `["a,b", "c"]`; the comma inside `"a,b"` was mistaken for a delimiter.
+
 ## Optimal Solution
 
 Prefix each string with its length followed by a non-numeric delimiter
@@ -66,3 +76,23 @@ private static String decode(String s) {
     return result.toString();
 }
 ```
+
+**Example:** `strs = ["a,b", "c"]`
+
+**Dry Run:**
+```
+encode(["a,b", "c"]):
+  "a,b" -> append 3, '#', "a,b" -> sb = "3#a,b"
+  "c"   -> append 1, '#', "c"   -> sb = "3#a,b1#c"
+encoded = "3#a,b1#c"
+
+decode("3#a,b1#c"):
+  i=0: j = indexOf('#', 0) = 1, length = parseInt("3") = 3
+       result.add(substring(2, 5)) = "a,b"   -> result = ["a,b"]
+       i = 2 + 3 = 5
+  i=5: j = indexOf('#', 5) = 6, length = parseInt("1") = 1
+       result.add(substring(7, 8)) = "c"     -> result = ["a,b", "c"]
+       i = 7 + 1 = 8
+  i=8: loop ends (8 == s.length())
+```
+Output: `["a,b", "c"]` — correctly recovers the original list, including the comma inside `"a,b"`.

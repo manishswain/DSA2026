@@ -37,6 +37,20 @@ private static List<List<Integer>> threeSumBruteForce(int[] nums) {
 }
 ```
 
+**Example:** `nums = [-1, 0, 1, 2, -1, -4]`
+
+**Dry Run:**
+```
+Checking all (i, j, k) triplets whose values sum to 0:
+(-1, 0, 1)  -> sum=0 -> sorted triplet [-1, 0, 1] added to seen
+(-1, 2, -1) -> sum=0 -> sorted triplet [-1, -1, 2] added to seen
+(0, 1, -1)  -> sum=0 -> sorted triplet [-1, 0, 1] already in seen (skipped)
+(all other combinations don't sum to 0)
+
+seen = { [-1, 0, 1], [-1, -1, 2] }
+```
+Output: `[[-1, 0, 1], [-1, -1, 2]]` (order may vary since `seen` is a `HashSet`)
+
 ## Optimal Solution
 
 Sort the array first. Then, for each index `i` (stopping once `nums[i] > 0`
@@ -86,3 +100,27 @@ private static void twoSumTwoPointers(int[] nums, int i, List<List<Integer>> res
     }
 }
 ```
+
+**Example:** `nums = [-1, 0, 1, 2, -1, -4]`
+
+**Dry Run:**
+```
+After sort: nums = [-4, -1, -1, 0, 1, 2]
+
+i=0 (-4): target=4, j=1, k=5
+  nums[1]+nums[5] = -1+2 = 1 < 4 -> j++
+  nums[2]+nums[5] = -1+2 = 1 < 4 -> j++
+  nums[3]+nums[5] = 0+2 = 2 < 4 -> j++
+  nums[4]+nums[5] = 1+2 = 3 < 4 -> j++ ; now j==k -> stop
+
+i=1 (-1): target=1, j=2, k=5
+  nums[2]+nums[5] = -1+2 = 1 == 1 -> add [-1, -1, 2]; j=3, k=4
+                    nums[3]!=nums[2] so no duplicate skip
+  nums[3]+nums[4] = 0+1 = 1 == 1 -> add [-1, 0, 1]; j=4, k=3 -> j>=k -> stop
+
+i=2 (-1): nums[2]==nums[1] -> skip anchor (duplicate)
+
+i=3 (0): target=0, j=4, k=5
+  nums[4]+nums[5] = 1+2 = 3 > 0 -> k--; now j==k -> stop
+```
+Output: `[[-1, -1, 2], [-1, 0, 1]]`

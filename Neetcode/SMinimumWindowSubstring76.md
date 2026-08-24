@@ -34,6 +34,19 @@ private static boolean containsAllChars(String subStr, String t) {
 }
 ```
 
+**Example:** `s = "ABC", t = "AC"`
+
+**Dry Run:**
+```
+i=0,j=1: subStr="A"   charCount{A1}; need A: count1>0 dec0; need C: count0 -> false
+i=0,j=2: subStr="AB"  charCount{A1,B1}; need A: dec0; need C: count0 -> false
+i=0,j=3: subStr="ABC" charCount{A1,B1,C1}; need A: dec0; need C: dec0 -> true! result="ABC"
+i=1,j=2: subStr="B"   charCount{B1}; need A: count0 -> false
+i=1,j=3: subStr="BC"  charCount{B1,C1}; need A: count0 -> false
+i=2,j=3: subStr="C"   charCount{C1}; need A: count0 -> false
+```
+Output: `"ABC"`
+
 ## Optimal Solution
 
 **Intuition:** Use a sliding window with two pointers over `s`, tracking how many of `t`'s required characters (with multiplicity) are currently satisfied by the window, via a frequency map for `t` and a counter for how many distinct required characters currently have enough occurrences. Expand the window with `right` until all of `t`'s characters are covered, then greedily shrink from `left` as much as possible while the window remains valid, recording the minimum-length valid window seen. Each character enters and leaves the window at most once, so unlike the brute force, we never re-derive counts from scratch — the "contains all of t" check becomes an O(1) comparison of a running "characters satisfied" counter instead of rescanning.
@@ -70,3 +83,24 @@ private static String minWindow(String s, String t) {
     return bestLen == Integer.MAX_VALUE ? "" : s.substring(bestStart, bestStart + bestLen);
 }
 ```
+
+**Example:** `s = "ABC", t = "AC"`
+
+**Dry Run:**
+```
+need: A=1, C=1 (required=2)
+window={}, formed=0, left=0, bestLen=INF, bestStart=0
+
+right=0 'A': window{A1}; need.get(A)=1==window.get(A)=1 -> formed=1
+             formed(1)!=required(2) -> no shrink
+right=1 'B': window{A1,B1}; 'B' not in need -> formed stays 1
+             formed(1)!=required(2) -> no shrink
+right=2 'C': window{A1,B1,C1}; need.get(C)=1==window.get(C)=1 -> formed=2
+             formed==required -> enter while:
+               len=2-0+1=3 < bestLen(INF) -> bestLen=3, bestStart=0
+               lc='A': window.put(A,0); window.get(A)=0<need.get(A)=1 -> formed=1
+               left=1
+             formed(1)!=required(2) -> exit while
+loop ends (right reaches s.length())
+```
+Output: `"ABC"`

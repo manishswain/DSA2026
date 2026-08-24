@@ -27,6 +27,19 @@ private static List<List<String>> groupAnagrams(String[] strs) {
 }
 ```
 
+**Example:** `strs = ["eat", "tea", "tan", "ate", "nat", "bat"]`
+
+**Dry Run:**
+```
+"eat" -> sorted "aet" -> map = {"aet": ["eat"]}
+"tea" -> sorted "aet" -> map = {"aet": ["eat", "tea"]}
+"tan" -> sorted "ant" -> map = {"aet": ["eat", "tea"], "ant": ["tan"]}
+"ate" -> sorted "aet" -> map = {"aet": ["eat", "tea", "ate"], "ant": ["tan"]}
+"nat" -> sorted "ant" -> map = {"aet": ["eat", "tea", "ate"], "ant": ["tan", "nat"]}
+"bat" -> sorted "abt" -> map = {"aet": [...], "ant": [...], "abt": ["bat"]}
+```
+Output: `[["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]`
+
 ## Optimal Solution
 
 Instead of sorting, build a character-frequency count (26 counts for lowercase letters) for each string and use that count signature — encoded as a string like `"2.0.0.1..."` — as the hash map key.
@@ -54,3 +67,13 @@ private static List<List<String>> groupAnagramsOptimal(String[] strs) {
     return res;
 }
 ```
+
+**Example:** `strs = ["eat", "tea", "bat"]`
+
+**Dry Run:**
+```
+"eat" -> count = [1,0,0,0,1,0,...,1(t)] -> key = "1.0.0.0.1.0...1..." -> map = {key1: ["eat"]}
+"tea" -> same letters as "eat" -> count identical -> key = key1 -> map = {key1: ["eat", "tea"]}
+"bat" -> count = [1(a),1(b),0,...,1(t)] -> key = key2 -> map = {key1: ["eat","tea"], key2: ["bat"]}
+```
+Output: `[["eat", "tea"], ["bat"]]`

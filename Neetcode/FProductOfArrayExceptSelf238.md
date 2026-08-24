@@ -25,6 +25,17 @@ private static int[] productExceptSelf(int[] nums) {
 }
 ```
 
+**Example:** `nums = [1, 2, 3, 4]`
+
+**Dry Run:**
+```
+i=0: product of nums[1..3] = 2*3*4 = 24 -> res[0] = 24
+i=1: product of nums[0,2,3] = 1*3*4 = 12 -> res[1] = 12
+i=2: product of nums[0,1,3] = 1*2*4 = 8  -> res[2] = 8
+i=3: product of nums[0,1,2] = 1*2*3 = 6  -> res[3] = 6
+```
+Output: `[24, 12, 8, 6]`
+
 ## Optimal Solution
 
 Make two passes over the array. In the first (left-to-right) pass, `res[i]` accumulates the product of all elements to the *left* of `i`. In the second (right-to-left) pass, multiply `res[i]` by the running product of all elements to the *right* of `i`.
@@ -51,3 +62,23 @@ private static int[] productExceptSelfOptimal(int[] nums) {
     return res;
 }
 ```
+
+**Example:** `nums = [1, 2, 3, 4]`
+
+**Dry Run:**
+```
+Left pass (pre starts at 1):
+  i=0: res[0] = pre = 1; pre *= 1 -> pre = 1
+  i=1: res[1] = pre = 1; pre *= 2 -> pre = 2
+  i=2: res[2] = pre = 2; pre *= 3 -> pre = 6
+  i=3: res[3] = pre = 6; pre *= 4 -> pre = 24
+  res after left pass = [1, 1, 2, 6]
+
+Right pass (post starts at 1):
+  i=3: res[3] *= post (1) -> res[3] = 6;  post *= nums[3] (4) -> post = 4
+  i=2: res[2] *= post (4) -> res[2] = 8;  post *= nums[2] (3) -> post = 12
+  i=1: res[1] *= post (12) -> res[1] = 12; post *= nums[1] (2) -> post = 24
+  i=0: res[0] *= post (24) -> res[0] = 24; post *= nums[0] (1) -> post = 24
+  res after right pass = [24, 12, 8, 6]
+```
+Output: `[24, 12, 8, 6]`

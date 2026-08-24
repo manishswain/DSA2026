@@ -47,6 +47,14 @@ private static boolean isValidBruteForce(char[][] board) {
 }
 ```
 
+**Example:** A 9x9 board where row 0 is `['5','3','.','.','7','.','.','.','.']` and all other cells are `.`, except `board[1][0] = '5'` (a duplicate `5` in column 0).
+
+**Dry Run:**
+```
+r=0, c=0, val='5': check row 0 -> no other '5' in row; check column 0 -> board[1][0]='5' matches -> return false
+```
+Output: `false`
+
 ## Optimal Solution
 
 Instead of re-scanning neighbors for every cell, do a single pass over the
@@ -92,3 +100,14 @@ private static boolean isValidSudoku(char[][] board) {
     return true;
 }
 ```
+
+**Example:** Same board as above — row 0 is `['5','3','.','.','7','.','.','.','.']`, all other cells `.`, except `board[1][0] = '5'`.
+
+**Dry Run:**
+```
+r=0, c=0, val='5': rowSets[0].add('5') -> true; columnSets[0].add('5') -> true; boxIndex=(0/3)*3+(0/3)=0; boxSets[0].add('5') -> true
+r=0, c=1, val='3': rowSets[0].add('3') -> true; columnSets[1].add('3') -> true; boxSets[0].add('3') -> true
+r=0, c=4, val='7': rowSets[0].add('7') -> true; columnSets[4].add('7') -> true; boxIndex=(0/3)*3+(4/3)=1; boxSets[1].add('7') -> true
+r=1, c=0, val='5': rowSets[1].add('5') -> true; columnSets[0].add('5') -> false (already present) -> return false
+```
+Output: `false`

@@ -25,6 +25,17 @@ private static int[] topKFrequentBrute(int[] nums, int k) {
 }
 ```
 
+**Example:** `nums = [1, 1, 1, 2, 2, 3]`, `k = 2`
+
+**Dry Run:**
+```
+map = {1:3, 2:2, 3:1}
+unique = [1, 2, 3]
+sorted by frequency descending -> [1, 2, 3]  (freq 3, 2, 1)
+res = first 2 elements = [1, 2]
+```
+Output: `[1, 2]`
+
 ## Optimal Solution
 
 Build the frequency map as before, then maintain a **min-heap** of size `k` (ordered by frequency). Push each unique element; whenever the heap exceeds size `k`, pop the smallest-frequency element. What remains are the `k` most frequent elements.
@@ -50,3 +61,16 @@ private static int[] topKFrequent(int[] nums, int k) {
     return pq.stream().mapToInt(a -> a).toArray();
 }
 ```
+
+**Example:** `nums = [1, 1, 1, 2, 2, 3]`, `k = 2`
+
+**Dry Run:**
+```
+map = {1:3, 2:2, 3:1}
+pq = [] (min-heap ordered by frequency)
+add 1 (freq 3): pq = [1]                       size 1 <= k
+add 2 (freq 2): pq = [2, 1]                    size 2 <= k
+add 3 (freq 1): pq = [3, 1, 2]                 size 3 > k -> poll smallest freq (3) -> pq = [1, 2]
+Remaining heap: {1, 2}
+```
+Output: `[1, 2]`

@@ -22,6 +22,16 @@ private static boolean isAnagramBrute(String s, String t) {
 }
 ```
 
+**Example:** `s = "anagram"`, `t = "nagaram"`
+
+**Dry Run:**
+```
+sc = ['a','n','a','g','r','a','m'] -> sorted -> ['a','a','a','g','m','n','r']
+tc = ['n','a','g','a','r','a','m'] -> sorted -> ['a','a','a','g','m','n','r']
+Arrays.equals(sc, tc) -> true
+```
+Output: `true`
+
 ## Optimal Solution
 
 Use a fixed-size count array (26 slots for lowercase letters). Increment counts for characters in `s`, decrement for characters in `t`. If every count returns to zero, the strings are anagrams.
@@ -45,3 +55,13 @@ private static boolean isAnagram(String s, String t) {
     return true;
 }
 ```
+
+**Example:** `s = "anagram"`, `t = "nagaram"`
+
+**Dry Run:**
+```
+After incrementing for s: countArr['a'-'a']=3, countArr['n'-'a']=1, countArr['g'-'a']=1, countArr['r'-'a']=1, countArr['m'-'a']=1
+After decrementing for t: countArr['a'-'a']=3-3=0, countArr['n'-'a']=1-1=0, countArr['g'-'a']=1-1=0, countArr['r'-'a']=1-1=0, countArr['m'-'a']=1-1=0
+Final scan: every slot is 0 -> return true
+```
+Output: `true`

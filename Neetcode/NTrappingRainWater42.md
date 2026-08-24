@@ -22,6 +22,18 @@ private static int trapBruteForce(int[] height) {
 }
 ```
 
+**Example:** `height = [3, 0, 2, 0, 4]`
+
+**Dry Run:**
+```
+i=0: leftMax(l=0..0)=3, rightMax(r=0..4)=4 -> total += min(3,4)-3=0   total=0
+i=1: leftMax(l=0..1)=3, rightMax(r=1..4)=4 -> total += min(3,4)-0=3   total=3
+i=2: leftMax(l=0..2)=3, rightMax(r=2..4)=4 -> total += min(3,4)-2=1   total=4
+i=3: leftMax(l=0..3)=3, rightMax(r=3..4)=4 -> total += min(3,4)-0=3   total=7
+i=4: leftMax(l=0..4)=4, rightMax(r=4..4)=4 -> total += min(4,4)-4=0   total=7
+```
+Output: `7`
+
 ## Optimal Solution
 
 The file contains two solutions: a precompute-arrays version (`trap`) and a two-pointer version (`trapOptimal`), which is the one actually run.
@@ -50,3 +62,24 @@ private static int trapOptimal(int[] height) {
     return total;
 }
 ```
+
+**Example:** `height = [3, 0, 2, 0, 4]`
+
+**Dry Run:**
+```
+left=0, right=4, leftMax=0, rightMax=0, total=0
+height[left]=3 < height[right]=4 -> process left
+  3 >= leftMax(0) -> leftMax=3
+  left=1
+height[left]=0 < height[right]=4 -> process left
+  0 < leftMax(3) -> total += 3-0=3   total=3
+  left=2
+height[left]=2 < height[right]=4 -> process left
+  2 < leftMax(3) -> total += 3-2=1   total=4
+  left=3
+height[left]=0 < height[right]=4 -> process left
+  0 < leftMax(3) -> total += 3-0=3   total=7
+  left=4
+left==right(4) -> loop ends
+```
+Output: `7`

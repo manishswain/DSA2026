@@ -42,6 +42,25 @@ private static boolean contains(int[] nums, int target) {
 }
 ```
 
+**Example:** `nums = [100, 4, 200, 1, 3, 2]`
+
+**Dry Run:**
+```
+num=100: contains(101)? no                          -> length=1, longest=1
+num=4:   contains(5)? no                            -> length=1, longest=1
+num=200: contains(201)? no                          -> length=1, longest=1
+num=1:   contains(2)? yes -> current=2, length=2
+         contains(3)? yes -> current=3, length=3
+         contains(4)? yes -> current=4, length=4
+         contains(5)? no                            -> longest=4
+num=3:   contains(4)? yes -> current=4, length=2
+         contains(5)? no                            -> longest=4
+num=2:   contains(3)? yes -> current=3, length=2
+         contains(4)? yes -> current=4, length=3
+         contains(5)? no                            -> longest=4
+```
+Output: `4`
+
 ## Optimal Solution
 
 Put all numbers into a `HashSet` for O(1) lookups. Then, for each number,
@@ -78,6 +97,34 @@ private static int longestConsecutiveOptimal(int[] nums) {
     return largestSeq;
 }
 ```
+
+**Example:** `nums = [100, 4, 200, 1, 3, 2]`
+
+**Dry Run:**
+```
+set = {100, 4, 200, 1, 3, 2}
+largestSeq = 1
+
+num=100: set.contains(99)? no -> is a start
+         currentSeq=1, currentNum=100
+         set.contains(101)? no -> stop
+         largestSeq = max(1, 1) = 1
+num=4:   set.contains(3)? yes -> skip (not a start)
+num=200: set.contains(199)? no -> is a start
+         currentSeq=1, currentNum=200
+         set.contains(201)? no -> stop
+         largestSeq = max(1, 1) = 1
+num=1:   set.contains(0)? no -> is a start
+         currentSeq=1, currentNum=1
+         set.contains(2)? yes -> currentSeq=2, currentNum=2
+         set.contains(3)? yes -> currentSeq=3, currentNum=3
+         set.contains(4)? yes -> currentSeq=4, currentNum=4
+         set.contains(5)? no -> stop
+         largestSeq = max(4, 1) = 4
+num=3:   set.contains(2)? yes -> skip (not a start)
+num=2:   set.contains(1)? yes -> skip (not a start)
+```
+Output: `4`
 
 ### Sub-Optimal Alternative (Sort-based)
 

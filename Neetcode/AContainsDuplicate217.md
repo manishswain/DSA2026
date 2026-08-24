@@ -22,6 +22,16 @@ private static boolean containsDuplicateBrute(int[] nums) {
 }
 ```
 
+**Example:** `nums = [1, 2, 3, 1]`
+
+**Dry Run:**
+```
+i=0 (1): j=1 (2) -> 1==2? no
+         j=2 (3) -> 1==3? no
+         j=3 (1) -> 1==1? yes -> return true
+```
+Output: `true`
+
 ## Optimal Solution
 
 Use a `HashSet` to record numbers as we scan the array once. If an insertion fails (the value is already present), a duplicate exists.
@@ -42,3 +52,15 @@ private static boolean containsDuplicate(int[] nums) {
     return false;
 }
 ```
+
+**Example:** `nums = [1, 2, 3, 1]`
+
+**Dry Run:**
+```
+set = {}
+i=1: set.add(1) -> true (inserted)   set = {1}
+i=2: set.add(2) -> true (inserted)   set = {1, 2}
+i=3: set.add(3) -> true (inserted)   set = {1, 2, 3}
+i=1: set.add(1) -> false (already present) -> return true
+```
+Output: `true`
