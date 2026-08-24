@@ -3,7 +3,7 @@ package Neetcode;
 public class RPermutationInString567 {
     public static void main(String[] args) {
         String s1 = "ab";
-        String s2 = "eidboaoo";
+        String s2 = "eidbaoo";
 
         boolean result = checkInclusion(s1, s2);
         System.out.println("Permutation in String: " + result);

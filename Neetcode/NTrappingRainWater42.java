@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class NTrappingRainWater42 {
     public static void main(String[] args) {
         int[] height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
-        System.out.println(trapOptimal(height));
+        System.out.println(trapOptimalPractice(height));
     }
 
     // Approach- Precompute the maximum height to the left and right of each bar,
@@ -63,6 +63,29 @@ public class NTrappingRainWater42 {
                     total += rightMax - height[right];
                 }
                 right--;
+            }
+        }
+        return total;
+    }
+
+    private static int trapOptimalPractice(int[] h) {
+        int j = 0, k = h.length - 1;
+        int leftMax = 0, rightMax = 0, total = 0;
+        while (j < k) {
+            if (h[j] < h[k]) {
+                if (h[j] >= leftMax) {
+                    leftMax = h[j];
+                } else {
+                    total += leftMax - h[j];
+                }
+                j++;
+            } else {
+                if (h[k] >= rightMax) {
+                    rightMax = h[k];
+                } else {
+                    total += rightMax - h[k];
+                }
+                k--;
             }
         }
         return total;
